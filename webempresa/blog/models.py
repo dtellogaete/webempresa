@@ -21,7 +21,7 @@ class Post(models.Model):
     content = models.TextField(verbose_name = "Contenido")
     published = models.DateTimeField(verbose_name = "Fecha de publicación", default = timezone.now() )
     image = models.ImageField(verbose_name = "Imagen", upload_to = "blog", null = True, blank = True)
-    autor =
+    autor = models.ForeingKey(User, verbose_name = "Autor", on_delete=models.CASCADE )
     categories =
     created = models.DateTimeField(auto_now_add=True, verbose_name = "Fecha de creación" )
     updated = models.DateTimeField(auto_now=True, verbose_name = "Fecha de actualización" )
